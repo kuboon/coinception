@@ -13,7 +13,7 @@ export const handler = define.handlers({
     await setMessages({ handCoin, priceText });
     return Response.json({
       handCoin,
-      priceText,
+      price,
     });
   },
 });
