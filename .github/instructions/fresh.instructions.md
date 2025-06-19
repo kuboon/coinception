@@ -56,4 +56,5 @@ applyTo: '**/*.{ts,tsx}'
   booleans, arrays, etc.).
 - Use co-location to organize components and islands closer to their respective
   routes for better structure.
-- Use the `deno task dev` command to start a development server with hot reloading.
+- Use the `deno task dev` command to start a development server with hot
+  reloading.
