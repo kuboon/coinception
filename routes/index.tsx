@@ -4,13 +4,13 @@ import { getMessages } from "../lib/kv.ts";
 
 export const handler = define.handlers({
   async GET() {
-    const { handCoin, priceText } = await getMessages();
-    return page({ handCoin, priceText });
+    return page(await getMessages());
   },
 });
 
 export default define.page<typeof handler>(
-  ({ data: { handCoin, priceText } }) => {
+  ({ data: { hand, coin, price } }) => {
+    const handCoin = `${hand === "right" ? "右" : "左"}手の${coin}玉`;
     return (
       <>
         <div
@@ -50,7 +50,7 @@ export default define.page<typeof handler>(
             マジシャンがその紙片を広げると、中には「{handCoin}」と書かれている・・・！
           </p>
 
-          <p class="font-bold text-5xl">{priceText}</p>
+          <p class="font-bold text-5xl">{price}円</p>
         </div>
       </>
     );

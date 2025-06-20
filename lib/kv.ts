@@ -1,17 +1,19 @@
 export type Messages = {
-  handCoin: string;
-  priceText: string;
+  hand: string;
+  coin: string;
+  price: string;
 }
 
 const kv = await Deno.openKv(Deno.env.get("DENO_KV_URL"));
-export async function getMessages(): Promise<Messages | null> {
+export async function getMessages(): Promise<Messages> {
   const result = await kv.get<Messages>(["coinception", "oohara"]);
   if (result.value) {
     return result.value;
   }
   return {
-    handCoin: "左手に500円玉",
-    priceText: "2000円",
+    hand: "right",
+    coin: "500",
+    price: "2000",
   };
 }
 export async function setMessages(messages: Messages): Promise<void> {
