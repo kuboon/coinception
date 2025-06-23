@@ -48,7 +48,7 @@ export default define.page<typeof handler>(
           </p>
 
           <p>
-            マジシャンがその紙片を広げると、中には「{handCoin}」と書かれている・・・！
+            マジシャンがその紙片を広げると、中には「{handCoin}！」と書かれている・・・！
           </p>
 
           <img src={imgSrc} alt={handCoin} class="mx-auto max-w-2xl" />
