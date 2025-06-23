@@ -10,7 +10,7 @@ export const handler = define.handlers({
 
 export default define.page<typeof handler>(
   ({ data: { hand, coin, price } }) => {
-    const handCoin = `${hand === "right" ? "右" : "左"}手の${coin}玉`;
+    const handCoin = `${hand === "right" ? "右" : "左"}手に${coin}円玉`;
     const imgSrc = `/images/${hand}_${coin}.jpg`;
     return (
       <>
