@@ -11,6 +11,7 @@ export const handler = define.handlers({
 export default define.page<typeof handler>(
   ({ data: { hand, coin, price } }) => {
     const handCoin = `${hand === "right" ? "右" : "左"}手の${coin}玉`;
+    const imgSrc = `/images/${hand}_${coin}.jpg`;
     return (
       <>
         <div
@@ -50,7 +51,9 @@ export default define.page<typeof handler>(
             マジシャンがその紙片を広げると、中には「{handCoin}」と書かれている・・・！
           </p>
 
-          <p class="font-bold text-5xl">{price}円</p>
+          <img src={imgSrc} alt={handCoin} class="mx-auto max-w-2xl" />
+
+          <p class="font-bold text-5xl my-4">{price}円</p>
         </div>
       </>
     );
