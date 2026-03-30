@@ -1,6 +1,6 @@
 import { Builder } from "fresh/dev";
 import { Scanner } from "@tailwindcss/oxide";
-import { compile } from "@kuboon/tailwindcss-deno";
+import { compile, toSourceMap } from "@kuboon/tailwindcss-deno";
 
 const scanner = new Scanner({
   sources: [
@@ -28,7 +28,7 @@ builder.onTransformStaticFile({
   });
   return {
     content: compiler.build(candidates),
-    map: undefined // compiler.buildSourceMap().sources,
+    map: toSourceMap(compiler.buildSourceMap()).inline,
   };
 });
 
