@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.{js,ts,jsx,tsx}'
+applyTo: "**/*.{js,ts,jsx,tsx}"
 ---
 
 # Deno 2 Instructions for Copilot

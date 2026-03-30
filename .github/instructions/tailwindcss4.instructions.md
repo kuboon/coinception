@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.{tsx,jsx,css}'
+applyTo: "**/*.{tsx,jsx,css}"
 ---
 
 # Tailwind CSS 4 Instructions for Copilot

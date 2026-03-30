@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.{ts,tsx}'
+applyTo: "**/*.{ts,tsx}"
 ---
 
 # Copilot Instructions for Fresh Framework

@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.{tsx,jsx,css}'
+applyTo: "**/*.{tsx,jsx,css}"
 ---
 
 # daisyUI 5

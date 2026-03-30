@@ -32,5 +32,3 @@ jobs:
           project: "coinception"
           entrypoint: "main.ts"
           root: "."
-          
-          

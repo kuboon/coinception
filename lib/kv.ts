@@ -2,7 +2,7 @@ export type Messages = {
   hand: string;
   coin: string;
   price: string;
-}
+};
 
 const kv = await Deno.openKv(Deno.env.get("DENO_KV_URL"));
 export async function getMessages(): Promise<Messages> {
