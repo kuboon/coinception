@@ -1,13 +1,41 @@
-#!/usr/bin/env -S deno run -A --watch=static/,routes/
-import { tailwind } from "@pakornv/fresh-plugin-tailwindcss";
-
 import { Builder } from "fresh/dev";
-import { app } from "./main.ts";
+import { Scanner } from "@tailwindcss/oxide";
+import { compile } from "@kuboon/tailwindcss-deno";
+
+const scanner = new Scanner({
+  sources: [
+    {
+      base: Deno.cwd(),
+      pattern: "**/*",
+      negated: false,
+    },
+  ],
+});
 
 const builder = new Builder();
-tailwind(builder, app);
+
+builder.onTransformStaticFile({
+  pluginName: "tailwindcss-deno",
+  filter: /\.css$/,
+}, async (args) => {
+  const candidates = scanner.scan();
+
+  const compiler = await compile(args.text, {
+    base: Deno.cwd(),
+    onDependency: (path) => {
+      console.log("Dependency:", path);
+    },
+  });
+  return {
+    content: compiler.build(candidates),
+    map: undefined // compiler.buildSourceMap().sources,
+  };
+});
+
 if (Deno.args.includes("build")) {
-  await builder.build(app);
+  // This creates a production build
+  await builder.build();
 } else {
-  await builder.listen(app);
+  // This starts a development server with live reload
+  await builder.listen(() => import("./main.ts"));
 }

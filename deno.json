@@ -6,33 +6,20 @@
     "start": "deno run -A main.ts",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
-  "lint": {
-    "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
-    }
-  },
-  "exclude": [
-    "**/_fresh/*"
-  ],
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "exclude": ["**/_fresh/*"],
   "nodeModulesDir": "auto",
   "imports": {
-    "@pakornv/fresh-plugin-tailwindcss": "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1",
-    "daisyui": "npm:daisyui@^5.0.43",
-    "fresh": "jsr:@fresh/core@^2.0.0-alpha.34",
-    "preact": "npm:preact@^10.26.6",
-    "@preact/signals": "npm:@preact/signals@^2.0.4",
-    "tailwindcss": "npm:tailwindcss@^4.1.7"
+    "@kuboon/tailwindcss-deno": "jsr:@kuboon/tailwindcss-deno@^0.1.2",
+    "@tailwindcss/oxide": "npm:@tailwindcss/oxide@^4.2.2",
+    "daisyui": "npm:daisyui@^5.5.19",
+    "fresh": "jsr:@fresh/core@^2.2.2",
+    "preact": "npm:preact@^10.29.0",
+    "@preact/signals": "npm:@preact/signals@^2.9.0",
+    "tailwindcss": "npm:tailwindcss@^4.2.2"
   },
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.asynciterable",
-      "dom.iterable",
-      "deno.ns"
-    ],
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
     "jsx": "precompile",
     "jsxImportSource": "preact",
     "jsxPrecompileSkipElements": [
@@ -41,7 +28,15 @@
       "source",
       "body",
       "html",
-      "head"
+      "head",
+      "title",
+      "meta",
+      "script",
+      "link",
+      "style",
+      "base",
+      "noscript",
+      "template"
     ]
   },
   "unstable": ["kv"]
